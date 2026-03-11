@@ -11,10 +11,10 @@ const fundingModeSelect = document.getElementById("fundingMode");
  * They are only used in the optional "first comment" field.
  */
 const RESOURCE_LINKS = {
-  bankBreezyApplication: "https://YOUR-BANK-BREEZY-LINK-HERE.com",
-  dacApplication: "https://YOUR-DAC-LINK-HERE.com",
-  bankBreezyInfo: "https://YOUR-BANK-BREEZY-INFO-LINK-HERE.com",
-  dacInfo: "https://YOUR-DAC-INFO-LINK-HERE.com"
+  bankBreezyApplication: "https://bankbreezy.com/funding/jason",
+  dacApplication: "https://davidallencapital.com/select-funding/jason",
+  bankBreezyInfo: "https://bankbreezy.com/jason",
+  dacInfo: "https://davidallencapital.com/jason"
 };
 
 const APPROVED_APPROACH = {
