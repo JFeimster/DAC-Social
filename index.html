@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Breezy Local Anchor Content Generator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="bg-glow bg-glow-a"></div>
+  <div class="bg-glow bg-glow-b"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-brand-row">
+        <div class="brand-stack">
+          <img
+            src="BB Broker Black.png"
+            alt="Bank Breezy Independent Broker"
+            class="brand-logo bb-logo"
+          />
+          <div class="brand-divider"></div>
+          <div class="powered-by-wrap">
+            <span class="powered-by-label">Powered by</span>
+            <img
+              src="DAC Broker Logo Blue.png"
+              alt="David Allen Capital, Inc. Independent Broker"
+              class="brand-logo dac-logo"
+            />
+          </div>
+        </div>
+
+        <div class="hero-badges">
+          <span class="trust-badge">3-post local rhythm</span>
+          <span class="trust-badge">Bank Breezy lead</span>
+          <span class="trust-badge">DAC-backed credibility</span>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Premium local authority tool</p>
+        <h1>Local Social Media “Anchor” Content Generator</h1>
+        <p class="subcopy">
+          Built for independent brokers who want to look local, useful, and real.
+          One anchor town. Three clean weekly posts. Optional first-comment resources
+          when the post actually earns them.
+        </p>
+      </div>
+    </header>
+
+    <section class="main-grid">
+      <aside class="panel input-panel">
+        <div class="panel-head">
+          <p class="section-kicker">Input</p>
+          <h2>Set the town. Generate the week.</h2>
+          <p class="panel-note">
+            Keep the town consistent. Repetition builds recognition. Recognition builds trust.
+          </p>
+        </div>
+
+        <div class="form-card">
+          <label for="anchorTown" class="label">Anchor Town</label>
+          <div class="input-row">
+            <input
+              id="anchorTown"
+              type="text"
+              placeholder="e.g. Milford"
+              value="Milford"
+              autocomplete="off"
+            />
+            <button id="generateBtn" class="cta-button">Generate My Content</button>
+          </div>
+          <p class="helper-text">
+            The generator rotates DAC-approved location framing:
+            <strong>Anchor</strong>, <strong>Radius</strong>, and <strong>Spotlight</strong>.
+          </p>
+        </div>
+
+        <div class="form-card compact-card">
+          <div class="toggle-row">
+            <div>
+              <p class="mini-title">Optional resource-first-comment mode</p>
+              <p class="mini-copy">
+                Main posts stay clean. Resource links only appear as optional first comments.
+              </p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="allowResourceComments" checked />
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-card compact-card">
+          <label for="fundingMode" class="label">Funding emphasis</label>
+          <select id="fundingMode">
+            <option value="hybrid" selected>Hybrid: Bank Breezy lead + DAC credibility</option>
+            <option value="bb">Bank Breezy lead: micro / same-day / self-employed</option>
+            <option value="dac">DAC lead: larger business funding / growth capital</option>
+          </select>
+        </div>
+
+        <div class="checklist-card">
+          <div class="checklist-head">
+            <p class="section-kicker">Weekly algorithm trigger</p>
+            <h3>Do the boring work. Get seen more.</h3>
+          </div>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            <span>Comment on 5 local business posts this week</span>
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            <span>Like and respond to comments on your own posts</span>
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            <span>Keep posts conversational. Push real funding talk into messages when needed.</span>
+          </label>
+
+          <div class="approved-comments">
+            <p class="approved-title">Approved local comments</p>
+            <ul>
+              <li>Love seeing local businesses win.</li>
+              <li>Rooting for you.</li>
+              <li>Happy to be a local resource if you ever need one.</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <section class="panel output-panel">
+        <div class="panel-head">
+          <p class="section-kicker">Output</p>
+          <h2>3-day posting calendar</h2>
+          <p class="panel-note">
+            Questions and observations beat polished fluff. The point is visibility, trust, and replies.
+          </p>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <template id="postCardTemplate">
+    <article class="day-card">
+      <div class="card-top">
+        <div>
+          <p class="day-label"></p>
+          <h3 class="post-type"></h3>
+        </div>
+        <span class="modifier-chip"></span>
+      </div>
+
+      <div class="card-section">
+        <p class="section-label">Main post</p>
+        <div class="copy-box post-copy"></div>
+      </div>
+
+      <div class="card-section first-comment-wrap hidden">
+        <p class="section-label">Optional first comment</p>
+        <div class="copy-box comment-copy"></div>
+      </div>
+
+      <div class="card-section rationale-wrap">
+        <p class="section-label">Why this fits</p>
+        <p class="rationale-copy"></p>
+      </div>
+
+      <div class="card-actions">
+        <button class="ghost-button copy-post-btn" type="button">Copy post</button>
+        <button class="ghost-button copy-comment-btn hidden" type="button">Copy first comment</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
